@@ -36,7 +36,7 @@
 #include <image_transport/image_transport.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
-
+#include "rclcpp/qos.hpp"
 namespace image_proc
 {
 
@@ -48,7 +48,7 @@ public:
 
 private:
   image_transport::Subscriber sub_raw_;
-
+  rclcpp::SensorDataQoS custom_qos;
   int debayer_;
 
   int debayer_bilinear_ = 0;

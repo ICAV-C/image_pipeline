@@ -55,7 +55,7 @@ DebayerNode::DebayerNode(const rclcpp::NodeOptions & options)
     this, "image_raw",
     std::bind(
       &DebayerNode::imageCb, this,
-      std::placeholders::_1), "raw");
+      std::placeholders::_1), "raw", custom_qos.get_rmw_qos_profile());
 
   pub_mono_ = image_transport::create_publisher(this, "image_mono");
   pub_color_ = image_transport::create_publisher(this, "image_color");
